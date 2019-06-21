@@ -11,6 +11,19 @@ Use your favorite package manager, most have a Terraform package.
 
 On OSX with homebrew: `brew install terraform`
 
+Alternatively, you can install `tfenv` which is a tool managing Terraform versions depending on projects.
+
+On OSX: `brew install tfenv`
+
+This repository has a `.terraform-version` file so you simply can issue: `tfenv install` in the directory and it will
+install and select the expected version.
+
+For a specific version: `tfenv install 0.12.2`.
+
+More on [tfenv here](https://github.com/tfutils/tfenv).
+
+Check the current version you have: `terraform version`
+
 ## Setup AWS
 
 This is a simple setup to run Terraform on AWS.

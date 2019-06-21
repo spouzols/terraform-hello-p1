@@ -1,5 +1,5 @@
 provider "aws" {
-  version = "2.4.0"
+  version = "2.16.0"
   region  = "eu-west-1"
 }
 
@@ -57,13 +57,13 @@ resource "aws_security_group" "hello_world" {
 }
 
 resource "aws_instance" "hello_world" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.small"
-  key_name      = "${var.key_name}"
+  key_name      = var.key_name
 
-  vpc_security_group_ids = ["${aws_security_group.hello_world.id}"]
+  vpc_security_group_ids = [aws_security_group.hello_world.id]
 
-  user_data = "${file("templates/user_data.tpl")}"
+  user_data = file("templates/user_data.tpl")
 
   tags = {
     Name = "hello-world"
